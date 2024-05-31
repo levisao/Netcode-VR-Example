@@ -35,6 +35,9 @@ public class TestRelay : MonoBehaviour {
 
     private bool isHost;
 
+    private bool gameStarted = false;
+
+    public bool GameStarted => gameStarted;
 
     private void Awake()
     {
@@ -56,33 +59,17 @@ public class TestRelay : MonoBehaviour {
             joinButton.onClick.AddListener(JoinRelay);
         }
 
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.sceneLoaded += OnSceneLoaded;  //subscribing to event that tells when a scene finished loading
 
     }
 
-    private void JoinGameClient()
-    {
-
-        SceneManager.LoadSceneAsync(1, LoadSceneMode.Single).completed += (operation) =>     //O código abaixo só vai executar quando a scene loadar toda
-        {
-            NetworkManager.Singleton.StartClient(); // Em vez de clicar no botão client, chmará por aqui
-        };
-    }
-    public void StartGameHost()
-    {
-        SceneManager.LoadSceneAsync(1, LoadSceneMode.Single).completed += (operation) =>     //O código abaixo só vai executar quando a scene loadar toda //IMPORTANTE//
-        {
-            NetworkManager.Singleton.StartHost(); // Em vez de clicar no botão host, chmará por aqui
-
-        };
-
-        
-    }
+    
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode) //ouvindo o evento de quando terminar de load uma cena
     {
         Debug.Log("CHEGOU AQUI 1111");
         if (scene.buildIndex == 1)
         {
+            gameStarted = true;
             Debug.Log("CHEGOU AQUI 2222");
             if (isHost)
             {
