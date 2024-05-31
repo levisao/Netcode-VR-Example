@@ -984,7 +984,7 @@ MonoBehaviour:
   XRHead: {fileID: 103115127883987414}
   XRHand_Left: {fileID: 2687352827197345410}
   XRHand_Right: {fileID: 4218159098876797071}
-  headPositionOffset: {x: 0, y: 0, z: 0}
+  headPositionOffset: {x: 0, y: -0.7, z: 0}
   handRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &6851410605619103946
 GameObject:

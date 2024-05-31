@@ -2486,10 +2486,25 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7309232155191332872, guid: 87580e5d7e3f40c48a951ba98178cbc8,
+        type: 3}
+      propertyPath: headPositionOffset.y
+      value: -0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7309232155191332872, guid: 87580e5d7e3f40c48a951ba98178cbc8,
+        type: 3}
+      propertyPath: headPositionOffset.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7789068131597685504, guid: 87580e5d7e3f40c48a951ba98178cbc8,
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8057365579302339941, guid: 87580e5d7e3f40c48a951ba98178cbc8,
+        type: 3}
+      propertyPath: near clip plane
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8564871007929746675, guid: 87580e5d7e3f40c48a951ba98178cbc8,
         type: 3}
