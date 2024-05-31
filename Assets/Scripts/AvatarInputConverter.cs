@@ -30,7 +30,7 @@ public class AvatarInputConverter : NetworkBehaviour
     {
         if (TestRelay.instance.GameStarted)
         {
-            Debug.Log("GAME STARTED DO RELAY IS TRUE");
+            //Debug.Log("GAME STARTED DO RELAY IS TRUE");
             if (!IsOwner) return;
         }
         //Head and Body synch
