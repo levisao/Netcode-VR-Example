@@ -18,18 +18,29 @@ public class AvatarRigSelector : NetworkBehaviour
 
 
 
-    private void OnEnable()
+    private void OnEnable() //OnEnable fica "bugando" trocar para o start conserta
     {
-        AvatarIndexInfo.instance.onAvatarIndexChange += ChangeAvatar; // O OnEnable tava chamando antes do awake??
 
-        avatarInputConverter = xrRig.GetComponent<AvatarInputConverter>();
 
     }
 
     private void Start()
     {
+        AvatarIndexInfo.instance.onAvatarIndexChange += ChangeAvatar; // O OnEnable tava chamando antes do awake??
+
+        avatarInputConverter = xrRig.GetComponent<AvatarInputConverter>();
+
         int avatarIndex = AvatarIndexInfo.instance.AvatarIndex;
         Debug.Log("Avatar Index: " + avatarIndex);
+        ChangeAvatar(avatarIndex);
+    }
+
+    public override void OnNetworkSpawn()
+    {
+        base.OnNetworkSpawn();
+
+        int avatarIndex = AvatarIndexInfo.instance.AvatarIndex;
+
         ChangeAvatar(avatarIndex);
     }
 

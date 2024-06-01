@@ -543,7 +543,7 @@ MonoBehaviour:
   codeText: {fileID: 144039113}
   inputField: {fileID: 1143443033}
   codeTextVRScene: {fileID: 0}
-  sceneIndex: 1
+  sceneIndex: 2
 --- !u!4 &380965799
 Transform:
   m_ObjectHideFlags: 0
@@ -2025,6 +2025,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1671675269}
+    - targetCorrespondingSourceObject: {fileID: 2103819056536221852, guid: 43be1c43d5fc9f448a974c20312e9e2d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1671675273}
   m_SourcePrefab: {fileID: 100100000, guid: 43be1c43d5fc9f448a974c20312e9e2d, type: 3}
 --- !u!1 &1510598044 stripped
 GameObject:
@@ -2242,6 +2246,29 @@ MonoBehaviour:
   - {fileID: 1264314963}
   previousButton: {fileID: 763462404}
   nextButton: {fileID: 948099570}
+--- !u!136 &1671675273
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671675265}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.83
+  m_Height: 2.21
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.54, z: 0}
 --- !u!1 &1800516688
 GameObject:
   m_ObjectHideFlags: 0
@@ -2401,6 +2428,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2103584425309946021, guid: 87580e5d7e3f40c48a951ba98178cbc8,
+        type: 3}
+      propertyPath: bulletShootWaitTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3420065383904134374, guid: 87580e5d7e3f40c48a951ba98178cbc8,
         type: 3}
       propertyPath: characters
@@ -2521,7 +2553,8 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4769628329976967874, guid: 87580e5d7e3f40c48a951ba98178cbc8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

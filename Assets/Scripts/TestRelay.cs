@@ -66,20 +66,18 @@ public class TestRelay : MonoBehaviour {
     
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode) //ouvindo o evento de quando terminar de load uma cena
     {
-        Debug.Log("CHEGOU AQUI 1111");
-        if (scene.buildIndex == 1)
+        if (scene.buildIndex == 2)
         {
             gameStarted = true;
-            Debug.Log("CHEGOU AQUI 2222");
             if (isHost)
             {
                 NetworkManager.Singleton.StartHost();
             }
             else
             {
-                Debug.Log("CHEGOU AQUI 3333");
                 NetworkManager.Singleton.StartClient();
             }
+            Debug.Log("Is Host?? " + isHost);
         }
     }
 
