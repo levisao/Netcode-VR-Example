@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Bullet : NetworkBehaviour
 {
-
     public Vector3 bulletMoveDirection;
 
     private Rigidbody bulletRB;

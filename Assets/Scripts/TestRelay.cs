@@ -77,7 +77,6 @@ public class TestRelay : MonoBehaviour {
             {
                 NetworkManager.Singleton.StartClient();
             }
-            Debug.Log("Is Host?? " + isHost);
         }
     }
 

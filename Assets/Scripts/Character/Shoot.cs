@@ -24,7 +24,7 @@ public class Shoot : NetworkBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Mouse0) && canShoot)
+        if (Input.GetKey(KeyCode.Mouse0) && canShoot && TestRelay.instance.GameStarted)
         {
             ProvideMoveDirectionToBullet();
             StartCoroutine(NormalShoot());
