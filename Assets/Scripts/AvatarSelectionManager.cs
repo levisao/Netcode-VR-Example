@@ -18,10 +18,11 @@ public class AvatarSelectionManager : MonoBehaviour
 
     //public Action<int> onAvatarIndexChange; //evento passando valor do avatarIndex
 
-    private int avatarIndex = 1;
+    private int avatarIndex;
 
     private void OnEnable()
     {
+        avatarIndex = AvatarIndexInfo.instance.AvatarIndex;
 
         previousButton.onClick.AddListener(() =>
         {
@@ -37,8 +38,6 @@ public class AvatarSelectionManager : MonoBehaviour
             //onAvatarIndexChange(avatarIndex);
 
             SearchAndSelectAvatar();
-            
-
         }
         );
 

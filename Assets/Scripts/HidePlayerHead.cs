@@ -18,12 +18,8 @@ public class HidePlayerHead : NetworkBehaviour
         base.OnNetworkSpawn();
 
         if (!IsOwner) return;
-        
-        //HideObjectsInArray();
 
-        avatarInitialIndex = AvatarIndexInfo.instance.AvatarIndex;
-
-        HideHead(avatarInitialIndex);
+        Initialization();
 
 
 
@@ -52,21 +48,26 @@ public class HidePlayerHead : NetworkBehaviour
 
     private void Start()
     {
+        
+
+        if (!TestRelay.instance.GameStarted)
+        {
+            Initialization();
+
+        }
+    }
+
+    private void Initialization()
+    {
         AvatarIndexInfo.instance.onAvatarIndexChange += HideHead;
 
         playerCamera = GetComponent<Camera>();
         CameraHideObjectMask();
 
-        if (!TestRelay.instance.GameStarted)
-        {
+        avatarInitialIndex = AvatarIndexInfo.instance.AvatarIndex;
 
-            avatarInitialIndex = AvatarIndexInfo.instance.AvatarIndex;
-
-            HideHead(avatarInitialIndex);
-
-        }
+        HideHead(avatarInitialIndex);
     }
-    
 
     private void HideObjectsInArray()
     {
