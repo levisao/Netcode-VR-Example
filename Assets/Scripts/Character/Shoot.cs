@@ -2,50 +2,102 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit.AffordanceSystem.Receiver.Primitives;
 
 public class Shoot : NetworkBehaviour
 {
-    [SerializeField] Transform bulletPrefab;
+
+    //[SerializeField] GameObject bulletPrefab;
+
+    [SerializeField] private GameObject clientBulletPrefab;
+
+    [SerializeField] private GameObject serverBulletPrefab;
 
     [SerializeField] private Transform rightHandController;
 
     [SerializeField] private float bulletShootDelay = 0.3f;
 
-    
+    [SerializeField] private Collider playerCollider;
 
-    private Bullet bullet;
+    [SerializeField] private float bulletSpeed = 20f;
+
 
     private bool canShoot = true;
-    void Start()
+
+
+    public override void OnNetworkSpawn()
     {
-        bullet = bulletPrefab.GetComponent<Bullet>();
+        if (!IsOwner) return;
+
+    }
+
+    public override void OnNetworkDespawn()
+    {
+        if (!IsOwner) return;
     }
 
     void Update()
     {
+        if (!IsOwner) return;
+
         if (Input.GetKey(KeyCode.Mouse0) && canShoot && TestRelay.instance.GameStarted)
         {
-            ProvideMoveDirectionToBullet();
             StartCoroutine(NormalShoot());
         }
     }
-
-    private void ProvideMoveDirectionToBullet()
-    {
-        bullet.bulletMoveDirection = rightHandController.transform.forward;
-    }
-
     private IEnumerator NormalShoot()
     {
         canShoot = false;
 
-        Transform spawnedBulletTransform = Instantiate(bulletPrefab, rightHandController.position, Quaternion.identity);
-        spawnedBulletTransform.GetComponent<NetworkObject>().Spawn(true);
+        SpawnBulletServerRpc(rightHandController.position, rightHandController.forward);
+
+        SpawnBullet(rightHandController.position, rightHandController.forward);
 
         yield return new WaitForSeconds(bulletShootDelay);
 
         canShoot = true;
+
+    }
+
+    [ServerRpc]
+    private void SpawnBulletServerRpc(Vector3 spawnPos, Vector3 direction) // sempre passar as varaiveis que vai usar, parece que só funciona assim?
+    {
+        GameObject spawnedBulletTransform = Instantiate(serverBulletPrefab, spawnPos, Quaternion.identity); //fake projectile?
+
+        spawnedBulletTransform.transform.forward = direction;
+
+        Physics.IgnoreCollision(playerCollider, spawnedBulletTransform.GetComponent<Collider>()); //ignoring collision with player
+
+        if (spawnedBulletTransform.TryGetComponent<Rigidbody>(out Rigidbody rb))
+        {
+            rb.AddForce(direction * bulletSpeed, ForceMode.Impulse);
+        }
+
+        SpawnBulletClientRpc(spawnPos, direction);
+    }
+
+    [ClientRpc]
+    private void SpawnBulletClientRpc(Vector3 spawnPos, Vector3 direction)
+    {
+        if (IsOwner) return;
+
+        SpawnBullet(spawnPos, direction);
+    }
+
+    private void SpawnBullet(Vector3 spawnPos , Vector3 direction)
+    {
+        GameObject spawnedBulletTransform = Instantiate(clientBulletPrefab, spawnPos, Quaternion.identity); //fake projectile?
+        
+
+        spawnedBulletTransform.transform.forward = direction;
+
+        Physics.IgnoreCollision(playerCollider, spawnedBulletTransform.GetComponent<Collider>()); //ignoring collision with player
+
+        if (spawnedBulletTransform.TryGetComponent<Rigidbody>(out Rigidbody rb))
+        {
+            rb.AddForce(direction * bulletSpeed, ForceMode.Impulse);
+        }
 
     }
 }

@@ -13,20 +13,23 @@ public class Bullet : NetworkBehaviour
 
     [SerializeField] private float bulletDestroyDelay = 3f;
 
-    //public Transform directionTransform;
-    void Start()
-    {
-        bulletRB = GetComponent<Rigidbody>();
 
-        bulletRB.AddForce(bulletMoveDirection * bulletSpeed, ForceMode.Impulse);
+    public override void OnNetworkSpawn()
+    {
+        //if (!IsOwner) return;
+
+    }
+
+    void OnEnable()
+    {
+        //bulletRB = GetComponent<Rigidbody>();
+        //bulletRB.AddForce(bulletMoveDirection * bulletSpeed, ForceMode.Impulse);
+        //Debug.Log("DESGRAÇA, Bullet Move Dir: " + bulletMoveDirection);
 
         Destroy(gameObject, 3f);
     }
+  
 
-    void Update()
-    {
-        //transform.position += bulletMoveDirection * bulletSpeed * Time.deltaTime;
-    }
 
     private void OnCollisionEnter(Collision collision)
     {

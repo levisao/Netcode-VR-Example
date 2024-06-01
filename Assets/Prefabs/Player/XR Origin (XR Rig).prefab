@@ -1038,11 +1038,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c67d39b66f852ef43a229a8e9e15a164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 4228443164100643315, guid: 02e803a2a1421de40b81658afad8fb16,
+  clientBulletPrefab: {fileID: 2086477688159467390, guid: c9473ecc23f26d44db38b0e55b65e947,
+    type: 3}
+  serverBulletPrefab: {fileID: 5218330170015258236, guid: 357e098b147853146946c6c40762f19e,
     type: 3}
   rightHandController: {fileID: 4218159098876797071}
   bulletShootDelay: 0.3
-  bulletDestroyDelay: 3
+  playerCollider: {fileID: 1819246980567729996}
+  bulletSpeed: 20
 --- !u!1 &6851410605619103946
 GameObject:
   m_ObjectHideFlags: 0
@@ -1330,7 +1333,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6851410605619103946}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c4a79a930c214c4697588944682d3ca, type: 3}
   m_Name: 

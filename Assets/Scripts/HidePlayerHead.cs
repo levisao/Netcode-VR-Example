@@ -24,27 +24,6 @@ public class HidePlayerHead : NetworkBehaviour
 
 
     }
-    private void OnEnable()
-    {
-
-        
-    }
-
-    private void HideHead(int index)
-    {
-        int avatarIndex = AvatarIndexInfo.instance.AvatarIndex;
-
-        objsPfToHide[avatarIndex].GetComponent<Transform>().gameObject.layer = hideObjectLayerIndex;
-
-
-        if (objsPfToHide[avatarIndex].GetChild(0) != null)
-        {
-            for (int i = 0; i < objsPfToHide[avatarIndex].childCount; i++)
-            {
-                objsPfToHide[avatarIndex].GetChild(i).GetComponent<Transform>().gameObject.layer = hideObjectLayerIndex;
-            }
-        }
-    }
 
     private void HideObjects()
     {
@@ -66,48 +45,24 @@ public class HidePlayerHead : NetworkBehaviour
 
     private void Start()
     {
-        
-
+       /* 
         if (!TestRelay.instance.GameStarted)
         {
             Initialization();
-
         }
+       */
     }
 
     private void Initialization()
     {
-        AvatarIndexInfo.instance.onAvatarIndexChange += HideHead;
-
         playerCamera = GetComponent<Camera>();
         CameraHideObjectMask();
-
-        avatarInitialIndex = AvatarIndexInfo.instance.AvatarIndex;
-
         HideObjects();
-
-        //HideHead(avatarInitialIndex);
     }
 
-    private void HideObjectsInArray()
-    {
-        foreach (Transform obj in objsPfToHide)
-        {
-            if (obj != null)
-            {
-                Debug.Log("Hiding the obj: " + obj.name);
-                obj.GetComponent<Transform>().gameObject.layer = hideObjectLayerIndex; //HideObjectLayer
-            }
-        }
-    }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            Debug.Log("PRESSEEEEEED");
-            CameraHideObjectMask();
-        }
     }
 
 
