@@ -10,6 +10,7 @@ public class AvatarRigSelector : NetworkBehaviour
 {
     [SerializeField] private GameObject[] avatarPrefabs;
 
+    private GameObject chosenAvatar;
 
 
     [SerializeField] private Transform xrRig;
@@ -26,18 +27,25 @@ public class AvatarRigSelector : NetworkBehaviour
 
     private void Start()
     {
-        AvatarIndexInfo.instance.onAvatarIndexChange += ChangeAvatar; // O OnEnable tava chamando antes do awake??
+        if (!TestRelay.instance.GameStarted)
+        {
+            AvatarIndexInfo.instance.onAvatarIndexChange += ChangeAvatar; // O OnEnable tava chamando antes do awake??
 
-        avatarInputConverter = xrRig.GetComponent<AvatarInputConverter>();
+            avatarInputConverter = xrRig.GetComponent<AvatarInputConverter>();
 
-        int avatarIndex = AvatarIndexInfo.instance.AvatarIndex; //aqui no start chamandp só na primeira cena
-        Debug.Log("Avatar Index: " + avatarIndex);
-        ChangeAvatar(avatarIndex);
+            int avatarIndex = AvatarIndexInfo.instance.AvatarIndex; //aqui no start chamandp só na primeira cena
+
+            ChangeAvatar(avatarIndex);
+
+        }
     }
 
     public override void OnNetworkSpawn() //chamará quando o player spawnar na network
     {
         base.OnNetworkSpawn();
+        if (!IsOwner) return;
+
+        avatarInputConverter = xrRig.GetComponent<AvatarInputConverter>();
 
         int avatarIndex = AvatarIndexInfo.instance.AvatarIndex;
 
@@ -46,19 +54,19 @@ public class AvatarRigSelector : NetworkBehaviour
 
     private void ChangeAvatar(int avatarIndex)
     {
-        for (int i = 0; i < avatarPrefabs.Length; i++)
+        if (chosenAvatar != null)
         {
-            avatarPrefabs[i].SetActive(i == avatarIndex);
-
-            if (i == avatarIndex)
-            {
-                avatarInputConverter.MainAvatarTransform = transform.Find(avatarPrefabs[i].name);
-                avatarInputConverter.AvatarBody = transform.Find(avatarPrefabs[i].name).GetChild(0);
-                avatarInputConverter.AvatarHand_Left = transform.Find(avatarPrefabs[i].name).GetChild(1);
-                avatarInputConverter.AvatarHand_Right = transform.Find(avatarPrefabs[i].name).GetChild(2);
-                avatarInputConverter.AvatarHead = transform.Find(avatarPrefabs[i].name).GetChild(3);
-            }
+            Destroy(chosenAvatar);
         }
+
+        chosenAvatar = Instantiate(avatarPrefabs[avatarIndex], xrRig.position, Quaternion.identity, xrRig);
+
+        avatarInputConverter.MainAvatarTransform = chosenAvatar.transform.Find(avatarPrefabs[avatarIndex].name);
+        avatarInputConverter.AvatarBody = chosenAvatar.transform.Find(avatarPrefabs[avatarIndex].name).GetChild(0);
+        avatarInputConverter.AvatarHand_Left = chosenAvatar.transform.Find(avatarPrefabs[avatarIndex].name).GetChild(1);
+        avatarInputConverter.AvatarHand_Right = chosenAvatar.transform.Find(avatarPrefabs[avatarIndex].name).GetChild(2);
+        avatarInputConverter.AvatarHead = chosenAvatar.transform.Find(avatarPrefabs[avatarIndex].name).GetChild(3);
+            
     }
 }
 
