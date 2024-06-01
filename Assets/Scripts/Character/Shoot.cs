@@ -80,7 +80,7 @@ public class Shoot : NetworkBehaviour
     [ClientRpc]
     private void SpawnBulletClientRpc(Vector3 spawnPos, Vector3 direction)
     {
-        if (IsOwner) return;
+        if (IsOwner) return;  // aqui será spanada a bullet quando alguém que n é o player local atirar
 
         SpawnBullet(spawnPos, direction);
     }

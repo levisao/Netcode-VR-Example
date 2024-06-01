@@ -5,13 +5,8 @@ using UnityEngine;
 
 public class Bullet : NetworkBehaviour
 {
-    public Vector3 bulletMoveDirection;
 
-    private Rigidbody bulletRB;
-
-    [SerializeField] private float bulletSpeed = 2;
-
-    [SerializeField] private float bulletDestroyDelay = 3f;
+    [SerializeField] private float bulletDestroyDelay = 2.5f;
 
 
     public override void OnNetworkSpawn()
@@ -26,7 +21,7 @@ public class Bullet : NetworkBehaviour
         //bulletRB.AddForce(bulletMoveDirection * bulletSpeed, ForceMode.Impulse);
         //Debug.Log("DESGRAÇA, Bullet Move Dir: " + bulletMoveDirection);
 
-        Destroy(gameObject, 3f);
+        Destroy(gameObject, bulletDestroyDelay);
     }
   
 
