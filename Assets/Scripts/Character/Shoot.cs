@@ -12,7 +12,7 @@ public class Shoot : NetworkBehaviour
 
     [SerializeField] private float bulletShootDelay = 0.3f;
 
-    [SerializeField] private float bulletDestroyDelay = 3f;
+    
 
     private Bullet bullet;
 
@@ -47,6 +47,5 @@ public class Shoot : NetworkBehaviour
 
         canShoot = true;
 
-        Destroy(spawnedBulletTransform.gameObject, bulletDestroyDelay);
     }
 }

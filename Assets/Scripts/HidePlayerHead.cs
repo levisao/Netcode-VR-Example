@@ -46,6 +46,24 @@ public class HidePlayerHead : NetworkBehaviour
         }
     }
 
+    private void HideObjects()
+    {
+        for (int i = 0; i < objsPfToHide.Length; i++)
+        {
+            objsPfToHide[i].GetComponent<Transform>().gameObject.layer = hideObjectLayerIndex;
+
+            if (objsPfToHide[i].GetChild(0) != null)
+            {
+                for (int j = 0; j < objsPfToHide[i].childCount; j++)
+                {
+                    objsPfToHide[j].GetChild(i).GetComponent<Transform>().gameObject.layer = hideObjectLayerIndex;
+                }
+            }
+        }
+
+
+    }
+
     private void Start()
     {
         
@@ -66,7 +84,9 @@ public class HidePlayerHead : NetworkBehaviour
 
         avatarInitialIndex = AvatarIndexInfo.instance.AvatarIndex;
 
-        HideHead(avatarInitialIndex);
+        HideObjects();
+
+        //HideHead(avatarInitialIndex);
     }
 
     private void HideObjectsInArray()

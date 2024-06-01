@@ -11,12 +11,16 @@ public class Bullet : NetworkBehaviour
 
     [SerializeField] private float bulletSpeed = 2;
 
+    [SerializeField] private float bulletDestroyDelay = 3f;
+
     //public Transform directionTransform;
     void Start()
     {
         bulletRB = GetComponent<Rigidbody>();
 
         bulletRB.AddForce(bulletMoveDirection * bulletSpeed, ForceMode.Impulse);
+
+        Destroy(gameObject, 3f);
     }
 
     void Update()
@@ -30,6 +34,7 @@ public class Bullet : NetworkBehaviour
         if (collision.transform.tag == "Player" && !IsOwner)
         {
             // take damage
+            Destroy(gameObject);
         }
     }
 }
