@@ -5,27 +5,29 @@ using UnityEngine;
 
 public class Bullet : NetworkBehaviour
 {
-    private Camera playerCamera;
-
 
     public Vector3 bulletMoveDirection;
+
+    private Rigidbody bulletRB;
 
     [SerializeField] private float bulletSpeed = 2;
 
     //public Transform directionTransform;
     void Start()
     {
-        playerCamera = Camera.main;
+        bulletRB = GetComponent<Rigidbody>();
+
+        bulletRB.AddForce(bulletMoveDirection * bulletSpeed, ForceMode.Impulse);
     }
 
     void Update()
     {
-        transform.position += bulletMoveDirection * bulletSpeed * Time.deltaTime;
+        //transform.position += bulletMoveDirection * bulletSpeed * Time.deltaTime;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-            Debug.Log("BALA COLIDIU");
+        Debug.Log("BALA COLIDIU");
         if (collision.transform.tag == "Player" && !IsOwner)
         {
             // take damage

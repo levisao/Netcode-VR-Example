@@ -30,12 +30,12 @@ public class AvatarRigSelector : NetworkBehaviour
 
         avatarInputConverter = xrRig.GetComponent<AvatarInputConverter>();
 
-        int avatarIndex = AvatarIndexInfo.instance.AvatarIndex;
+        int avatarIndex = AvatarIndexInfo.instance.AvatarIndex; //aqui no start chamandp só na primeira cena
         Debug.Log("Avatar Index: " + avatarIndex);
         ChangeAvatar(avatarIndex);
     }
 
-    public override void OnNetworkSpawn()
+    public override void OnNetworkSpawn() //chamará quando o player spawnar na network
     {
         base.OnNetworkSpawn();
 

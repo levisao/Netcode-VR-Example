@@ -26,9 +26,14 @@ public class Shoot : NetworkBehaviour
     {
         if (Input.GetKey(KeyCode.Mouse0) && canShoot)
         {
-            bullet.bulletMoveDirection = rightHandController.transform.forward;
+            ProvideMoveDirectionToBullet();
             StartCoroutine(NormalShoot());
         }
+    }
+
+    private void ProvideMoveDirectionToBullet()
+    {
+        bullet.bulletMoveDirection = rightHandController.transform.forward;
     }
 
     private IEnumerator NormalShoot()
