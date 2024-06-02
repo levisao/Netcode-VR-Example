@@ -1472,84 +1472,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!1001 &1120980637
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4085269694611489692, guid: 02e803a2a1421de40b81658afad8fb16,
-        type: 3}
-      propertyPath: m_Name
-      value: NormalBullet
-      objectReference: {fileID: 0}
-    - target: {fileID: 4228443164100643315, guid: 02e803a2a1421de40b81658afad8fb16,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4228443164100643315, guid: 02e803a2a1421de40b81658afad8fb16,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4228443164100643315, guid: 02e803a2a1421de40b81658afad8fb16,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4228443164100643315, guid: 02e803a2a1421de40b81658afad8fb16,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4228443164100643315, guid: 02e803a2a1421de40b81658afad8fb16,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4228443164100643315, guid: 02e803a2a1421de40b81658afad8fb16,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4228443164100643315, guid: 02e803a2a1421de40b81658afad8fb16,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4228443164100643315, guid: 02e803a2a1421de40b81658afad8fb16,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4228443164100643315, guid: 02e803a2a1421de40b81658afad8fb16,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4228443164100643315, guid: 02e803a2a1421de40b81658afad8fb16,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7045531769683606171, guid: 02e803a2a1421de40b81658afad8fb16,
-        type: 3}
-      propertyPath: GlobalObjectIdHash
-      value: 1959242631
-      objectReference: {fileID: 0}
-    - target: {fileID: 7045531769683606171, guid: 02e803a2a1421de40b81658afad8fb16,
-        type: 3}
-      propertyPath: InScenePlacedSourceGlobalObjectIdHash
-      value: 4173715690
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 02e803a2a1421de40b81658afad8fb16, type: 3}
 --- !u!1 &1143443031
 GameObject:
   m_ObjectHideFlags: 0
@@ -2528,6 +2450,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2103584425309946021, guid: 87580e5d7e3f40c48a951ba98178cbc8,
         type: 3}
+      propertyPath: triggerRightHand
+      value: 
+      objectReference: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f,
+        type: 3}
+    - target: {fileID: 2103584425309946021, guid: 87580e5d7e3f40c48a951ba98178cbc8,
+        type: 3}
       propertyPath: bulletShootWaitTime
       value: 1
       objectReference: {fileID: 0}
@@ -2688,4 +2616,3 @@ SceneRoots:
   - {fileID: 247428392}
   - {fileID: 1602628182}
   - {fileID: 380965799}
-  - {fileID: 1120980637}

@@ -40,28 +40,16 @@ public class Shoot : NetworkBehaviour
 
     void Update()
     {
-        //Debug.Log(triggerRightHand.action.ReadValue<float>());
+        Debug.Log(triggerRightHand.action.ReadValue<float>());
         if (!IsOwner) return;
 
-        _triggerRightHand = triggerRightHand.action.ReadValue<float>();
+        _triggerRightHand = triggerRightHand.action.ReadValue<float>(); // 0 or 1
 
-        //if (_triggerRightHand < 0.6f) return;
         // Button is pressed
         if (_triggerRightHand > 0.6 && canShoot)
         {
             StartCoroutine(NormalShoot());
         }
-        
-
-        //_triggerRightHand = triggerRightHand.action.ReadValue<bool>();
-
-        //if (!_triggerRightHand) return;
-
-        //StartCoroutine(NormalShoot());
-        //if (Input.GetKey(KeyCode.Mouse0) && canShoot && TestRelay.instance.GameStarted)
-        //{
-        //   ShootCoroutine();
-        // }
     }
 
 
