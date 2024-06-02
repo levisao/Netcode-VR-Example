@@ -40,7 +40,7 @@ public class Shoot : NetworkBehaviour
 
     void Update()
     {
-        Debug.Log(triggerRightHand.action.ReadValue<float>());
+        //Debug.Log(triggerRightHand.action.ReadValue<float>());
         if (!IsOwner) return;
 
         _triggerRightHand = triggerRightHand.action.ReadValue<float>(); // 0 or 1
@@ -66,6 +66,14 @@ public class Shoot : NetworkBehaviour
         canShoot = true;
 
     }
+
+    /// <summary>
+    /// Os rpcs funcionam assim: O cliente vai atirar um projétil que só ele está vendo (acho)
+    /// e logo em seguida um projétil "invisível" atirado pelo server irá ser lançado tambem
+    /// O projétil do cliente não da dano, é só para o cliente achar o jogo mais responsivo, sem lag
+    /// </summary>
+    /// <param name="spawnPos"></param>
+    /// <param name="direction"></param>
 
     [ServerRpc]
     private void SpawnBulletServerRpc(Vector3 spawnPos, Vector3 direction) // sempre passar as varaiveis que vai usar, parece que só funciona assim?

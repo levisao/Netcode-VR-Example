@@ -790,6 +790,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6539550550452550094}
   - component: {fileID: 6939739892044420508}
+  - component: {fileID: 1206055678821717281}
   m_Layer: 0
   m_Name: Health Canvas
   m_TagString: Untagged
@@ -840,6 +841,20 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1206055678821717281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4319143356256106387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0a9253e1b1238249b99d8af6532d6c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 7432859894242931536}
+  healthBarImage: {fileID: 7251125067667254587}
 --- !u!1 &4846986298524977588
 GameObject:
   m_ObjectHideFlags: 0
@@ -859,6 +874,7 @@ GameObject:
   - component: {fileID: 6209071314186794570}
   - component: {fileID: 7309232155191332872}
   - component: {fileID: 2103584425309946021}
+  - component: {fileID: 7432859894242931536}
   m_Layer: 0
   m_Name: XR Origin (XR Rig)
   m_TagString: Untagged
@@ -934,13 +950,13 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 2
+  m_Height: 1.32
   m_Radius: 0.21
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 0.63, z: 0}
 --- !u!114 &144651305628258917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1109,6 +1125,21 @@ MonoBehaviour:
   playerCollider: {fileID: 1819246980567729996}
   bulletShootDelay: 0.3
   bulletSpeed: 20
+--- !u!114 &7432859894242931536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4846986298524977588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 640567e7fbd42b64b9b019a35c4dd83b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <MaxHealth>k__BackingField: 100
+  currentHealth:
+    m_InternalValue: 0
 --- !u!1 &6235811186784721938
 GameObject:
   m_ObjectHideFlags: 0

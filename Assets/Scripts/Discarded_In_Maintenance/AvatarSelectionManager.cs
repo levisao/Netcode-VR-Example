@@ -22,7 +22,7 @@ public class AvatarSelectionManager : MonoBehaviour
 
     private void OnEnable()
     {
-        avatarIndex = AvatarIndexInfo.instance.AvatarIndex;
+        //avatarIndex = AvatarIndexInfo.instance.AvatarIndex;
 
         previousButton.onClick.AddListener(() =>
         {
@@ -52,7 +52,7 @@ public class AvatarSelectionManager : MonoBehaviour
 
             //onAvatarIndexChange(avatarIndex);
 
-            AvatarIndexInfo.instance.SetAvatarIndex(avatarIndex);
+            //AvatarIndexInfo.instance.SetAvatarIndex(avatarIndex);
 
             SearchAndSelectAvatar();
         }
