@@ -4,25 +4,25 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit.AffordanceSystem.Receiver.Primitives;
+using static UnityEngine.Rendering.DebugUI;
 
 public class Shoot : NetworkBehaviour
 {
 
     //[SerializeField] GameObject bulletPrefab;
-
+    [Header("References:")]
+    [SerializeField] private InputActionReference triggerRightHand;
     [SerializeField] private GameObject clientBulletPrefab;
-
     [SerializeField] private GameObject serverBulletPrefab;
-
     [SerializeField] private Transform rightHandController;
-
-    [SerializeField] private float bulletShootDelay = 0.3f;
-
     [SerializeField] private Collider playerCollider;
 
+    [Header("Settings:")]
+    [SerializeField] private float bulletShootDelay = 0.3f;
     [SerializeField] private float bulletSpeed = 20f;
 
 
+    private float _triggerRightHand;
     private bool canShoot = true;
 
 
@@ -30,6 +30,7 @@ public class Shoot : NetworkBehaviour
     {
         if (!IsOwner) return;
 
+        
     }
 
     public override void OnNetworkDespawn()
@@ -39,13 +40,31 @@ public class Shoot : NetworkBehaviour
 
     void Update()
     {
+        //Debug.Log(triggerRightHand.action.ReadValue<float>());
         if (!IsOwner) return;
 
-        if (Input.GetKey(KeyCode.Mouse0) && canShoot && TestRelay.instance.GameStarted)
+        _triggerRightHand = triggerRightHand.action.ReadValue<float>();
+
+        //if (_triggerRightHand < 0.6f) return;
+        // Button is pressed
+        if (_triggerRightHand > 0.6 && canShoot)
         {
             StartCoroutine(NormalShoot());
         }
+        
+
+        //_triggerRightHand = triggerRightHand.action.ReadValue<bool>();
+
+        //if (!_triggerRightHand) return;
+
+        //StartCoroutine(NormalShoot());
+        //if (Input.GetKey(KeyCode.Mouse0) && canShoot && TestRelay.instance.GameStarted)
+        //{
+        //   ShootCoroutine();
+        // }
     }
+
+
     private IEnumerator NormalShoot()
     {
         canShoot = false;
@@ -98,6 +117,6 @@ public class Shoot : NetworkBehaviour
         {
             rb.AddForce(direction * bulletSpeed, ForceMode.Impulse);
         }
-
     }
 }
+

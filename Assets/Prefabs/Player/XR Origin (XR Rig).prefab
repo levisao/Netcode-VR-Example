@@ -1038,13 +1038,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c67d39b66f852ef43a229a8e9e15a164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  triggerRightHand: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
   clientBulletPrefab: {fileID: 2086477688159467390, guid: c9473ecc23f26d44db38b0e55b65e947,
     type: 3}
   serverBulletPrefab: {fileID: 5218330170015258236, guid: 357e098b147853146946c6c40762f19e,
     type: 3}
   rightHandController: {fileID: 4218159098876797071}
-  bulletShootDelay: 0.3
   playerCollider: {fileID: 1819246980567729996}
+  bulletShootDelay: 0.3
   bulletSpeed: 20
 --- !u!1 &6851410605619103946
 GameObject:
