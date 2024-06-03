@@ -988,7 +988,7 @@ MonoBehaviour:
   m_EnableStrafe: 1
   m_EnableFly: 0
   m_UseGravity: 1
-  m_GravityApplicationMode: 0
+  m_GravityApplicationMode: 1
   m_ForwardSource: {fileID: 103115127883987414}
   m_LeftHandMoveAction:
     m_UseReference: 1
@@ -1004,7 +1004,7 @@ MonoBehaviour:
     m_Reference: {fileID: 6972639530819350904, guid: c348712bda248c246b8c49b3db54643f,
       type: 3}
   m_RightHandMoveAction:
-    m_UseReference: 1
+    m_UseReference: 0
     m_Action:
       m_Name: Right Hand Move
       m_Type: 0
@@ -1155,6 +1155,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   locomotionSystem: {fileID: 144651305628258917}
   continuousMoveProvider: {fileID: 8864015056672882160}
+  moveInputAction: {fileID: 6972639530819350904, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
+  characterController: {fileID: 1819246980567729996}
+  speed: 1
 --- !u!1 &6235811186784721938
 GameObject:
   m_ObjectHideFlags: 0
