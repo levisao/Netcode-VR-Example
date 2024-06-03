@@ -24,7 +24,7 @@ public class Health : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
-        if (!IsOwner) return;
+        if (!IsServer) return;
 
         // .Value para pegar o valor de variáveis de network
         currentHealth.Value = MaxHealth;
