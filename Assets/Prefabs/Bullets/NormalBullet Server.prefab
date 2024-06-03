@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 4085269694611489692, guid: 02e803a2a1421de40b81658afad8fb16,
         type: 3}
       propertyPath: m_Name
-      value: NormalBullet Variant 1
+      value: NormalBullet Server
       objectReference: {fileID: 0}
     - target: {fileID: 4228443164100643315, guid: 02e803a2a1421de40b81658afad8fb16,
         type: 3}
@@ -66,7 +66,7 @@ PrefabInstance:
     - target: {fileID: 7045531769683606171, guid: 02e803a2a1421de40b81658afad8fb16,
         type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 540960443
+      value: 179216214
       objectReference: {fileID: 0}
     - target: {fileID: 7045531769683606171, guid: 02e803a2a1421de40b81658afad8fb16,
         type: 3}
@@ -76,5 +76,29 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4085269694611489692, guid: 02e803a2a1421de40b81658afad8fb16,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3478472577327813179}
   m_SourcePrefab: {fileID: 100100000, guid: 02e803a2a1421de40b81658afad8fb16, type: 3}
+--- !u!1 &5218330170015258236 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4085269694611489692, guid: 02e803a2a1421de40b81658afad8fb16,
+    type: 3}
+  m_PrefabInstance: {fileID: 8132076510632351200}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3478472577327813179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5218330170015258236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dda443fe81a33d48841857ec24780d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletDestroyDelay: 2.5
+  damage: 5

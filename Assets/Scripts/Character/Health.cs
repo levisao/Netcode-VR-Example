@@ -39,8 +39,8 @@ public class Health : NetworkBehaviour
     {
         if(isDead) return;
 
-        currentHealth.Value += value;
-        currentHealth.Value = Mathf.Clamp(currentHealth.Value, 0, MaxHealth); //limita o minimo e maximo do life
+        int newValue = currentHealth.Value + value;
+        currentHealth.Value = Mathf.Clamp(newValue, 0, MaxHealth); //limita o minimo e maximo do life
 
         if (currentHealth.Value == 0)
         {

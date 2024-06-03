@@ -15,7 +15,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 //using UnityEngine.UIElements;
 
-public class TestRelay : MonoBehaviour {
+public class TestRelay : NetworkBehaviour {
 
     public static TestRelay instance; //Singleton
 
@@ -27,7 +27,7 @@ public class TestRelay : MonoBehaviour {
 
     [SerializeField] private TextMeshProUGUI codeTextVRScene;
 
-    [SerializeField] private int sceneIndex = 1;
+    [SerializeField] private string sceneName = "World_School";
 
     private string joinCode = null;
 
@@ -59,14 +59,14 @@ public class TestRelay : MonoBehaviour {
             joinButton.onClick.AddListener(JoinRelay);
         }
 
-        SceneManager.sceneLoaded += OnSceneLoaded;  //subscribing to event that tells when a scene finished loading
+        //SceneManager.sceneLoaded += OnSceneLoaded;  //subscribing to event that tells when a scene finished loading
 
     }
 
     
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode) //ouvindo o evento de quando terminar de load uma cena
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode) //ouvindo o evento de quando terminar de load uma cena ANTIGO JEITO
     {
-        if (scene.buildIndex == 2)
+        if (scene.name == sceneName)
         {
             gameStarted = true;
             if (isHost)
@@ -77,6 +77,17 @@ public class TestRelay : MonoBehaviour {
             {
                 NetworkManager.Singleton.StartClient();
             }
+        }
+    }
+
+    public override void OnNetworkSpawn()
+    {
+
+        var status = NetworkManager.SceneManager.LoadScene(sceneName, LoadSceneMode.Single); // irá loadar a cena assim que a network spawn
+        if (status != SceneEventProgressStatus.Started)
+        {
+            Debug.LogWarning($"Failed to load {sceneName} " +
+                  $"with a {nameof(SceneEventProgressStatus)}: {status}");
         }
     }
 
@@ -115,8 +126,8 @@ public class TestRelay : MonoBehaviour {
 
             isHost = true;
 
-            LoadScene(sceneIndex);
-            //StartGameHost();
+        //LoadScene(sceneName);
+        NetworkManager.Singleton.StartHost(); 
         }
         catch (RelayServiceException e)
         {
@@ -125,9 +136,11 @@ public class TestRelay : MonoBehaviour {
 
     }
 
-    private static void LoadScene(int index)
+    private static void LoadScene(string scene)
     {
-        SceneManager.LoadScene(index);
+        //Debug.Log("Scene name: " + scene);
+        //NetworkManager.Singleton.SceneManager.LoadScene(scene, LoadSceneMode.Single);
+        //SceneManager.LoadScene(scene);
     }
 
     public async void JoinRelay() // Joinando o server com o joinCode gerado
@@ -149,8 +162,8 @@ public class TestRelay : MonoBehaviour {
 
             isHost = false;
 
-            LoadScene(sceneIndex);
-            //JoinGameClient();
+            //LoadScene(sceneName);
+            NetworkManager.Singleton.StartClient();
         }
         catch (RelayServiceException e)
         {

@@ -20,6 +20,7 @@ public class Shoot : NetworkBehaviour
     [Header("Settings:")]
     [SerializeField] private float bulletShootDelay = 0.3f;
     [SerializeField] private float bulletSpeed = 20f;
+    [SerializeField] private float bulletDestroyDelay = 2.5f;
 
 
     private float _triggerRightHand;
@@ -84,10 +85,17 @@ public class Shoot : NetworkBehaviour
 
         Physics.IgnoreCollision(playerCollider, spawnedBulletTransform.GetComponent<Collider>()); //ignoring collision with player
 
+        if(spawnedBulletTransform.TryGetComponent<Bullet>(out Bullet bullet))
+        {
+            bullet.SetOwner(OwnerClientId);  /// passando o id do client que atirou para o Bullet
+        }
+
         if (spawnedBulletTransform.TryGetComponent<Rigidbody>(out Rigidbody rb))
         {
             rb.AddForce(direction * bulletSpeed, ForceMode.Impulse);
         }
+
+        Destroy(spawnedBulletTransform, bulletDestroyDelay);
 
         SpawnBulletClientRpc(spawnPos, direction);
     }
@@ -113,6 +121,8 @@ public class Shoot : NetworkBehaviour
         {
             rb.AddForce(direction * bulletSpeed, ForceMode.Impulse);
         }
+
+        Destroy(spawnedBulletTransform, bulletDestroyDelay);
     }
 }
 

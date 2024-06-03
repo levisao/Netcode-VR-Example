@@ -7,32 +7,33 @@ public class AvatarInputConverter : NetworkBehaviour
 {
 
     //Avatar Transforms
-    public Transform MainAvatarTransform;
-    public Transform AvatarHead;
-    public Transform AvatarBody;
+    [SerializeField] private Transform MainAvatarTransform;
+    [SerializeField] private Transform AvatarHead;
+    [SerializeField] private Transform AvatarBody;
 
-    public Transform AvatarHand_Left;
-    public Transform AvatarHand_Right;
+    [SerializeField] private Transform AvatarHand_Left;
+    [SerializeField] private Transform AvatarHand_Right;
 
     //XRRig Transforms
-    public Transform XRHead;
+    [SerializeField] private Transform XRHead;
 
-    public Transform XRHand_Left;
-    public Transform XRHand_Right;
+    [SerializeField] private Transform XRHand_Left;
+    [SerializeField] private Transform XRHand_Right;
 
-    public Vector3 headPositionOffset;
-    public Vector3 handRotationOffset;
+    [SerializeField] private Vector3 headPositionOffset;
+    [SerializeField] private Vector3 handRotationOffset;
 
     
 
     // Update is called once per frame
     void Update()
     {
-        if (TestRelay.instance.GameStarted)
+        if (NetworkManager.IsListening) //are we connected to the server as a client
         {
-            //Debug.Log("GAME STARTED DO RELAY IS TRUE");
+            //Debug.Log("SE TIVER APARECENDO ISLISTENING É TRUE");
             if (!IsOwner) return;
         }
+        
         //Head and Body synch
         MainAvatarTransform.position = Vector3.Lerp(MainAvatarTransform.position, XRHead.position + headPositionOffset, 0.5f);
         AvatarHead.rotation = Quaternion.Lerp(AvatarHead.rotation, XRHead.rotation, 0.5f);

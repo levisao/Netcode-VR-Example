@@ -805,17 +805,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4319143356256106387}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 676989664113740720}
-  m_Father: {fileID: 4284213498370026824}
+  m_Father: {fileID: 103115127883987414}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 1.566}
+  m_AnchoredPosition: {x: 0, y: 0.44840002}
   m_SizeDelta: {x: 0.5, y: 0.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &6939739892044420508
@@ -875,6 +875,7 @@ GameObject:
   - component: {fileID: 7309232155191332872}
   - component: {fileID: 2103584425309946021}
   - component: {fileID: 7432859894242931536}
+  - component: {fileID: 2943385412414940474}
   m_Layer: 0
   m_Name: XR Origin (XR Rig)
   m_TagString: Untagged
@@ -897,7 +898,6 @@ Transform:
   m_Children:
   - {fileID: 5944115057489745508}
   - {fileID: 7176582942675199241}
-  - {fileID: 6539550550452550094}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4357984942538087397
@@ -1125,6 +1125,7 @@ MonoBehaviour:
   playerCollider: {fileID: 1819246980567729996}
   bulletShootDelay: 0.3
   bulletSpeed: 20
+  bulletDestroyDelay: 2.5
 --- !u!114 &7432859894242931536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1140,6 +1141,20 @@ MonoBehaviour:
   <MaxHealth>k__BackingField: 100
   currentHealth:
     m_InternalValue: 0
+--- !u!114 &2943385412414940474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4846986298524977588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dddb4fae523072146ab63053dbe698a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locomotionSystem: {fileID: 144651305628258917}
+  continuousMoveProvider: {fileID: 8864015056672882160}
 --- !u!1 &6235811186784721938
 GameObject:
   m_ObjectHideFlags: 0
@@ -1249,7 +1264,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6539550550452550094}
   m_Father: {fileID: 5944115057489745508}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &8057365579302339941

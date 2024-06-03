@@ -517,6 +517,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 380965799}
+  - component: {fileID: 380965801}
   - component: {fileID: 380965798}
   - component: {fileID: 380965800}
   m_Layer: 0
@@ -544,7 +545,7 @@ MonoBehaviour:
   codeText: {fileID: 144039113}
   inputField: {fileID: 1143443033}
   codeTextVRScene: {fileID: 0}
-  sceneIndex: 2
+  sceneName: World_School
 --- !u!4 &380965799
 Transform:
   m_ObjectHideFlags: 0
@@ -582,6 +583,27 @@ MonoBehaviour:
     m_PositionTopToBottom: 0
   <Configuration>k__BackingField: {fileID: 11400000, guid: 8f1b4e3792d8446399527749cfb591a2,
     type: 2}
+--- !u!114 &380965801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380965797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 3850294252
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -2436,6 +2458,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 144651305628258917, guid: 87580e5d7e3f40c48a951ba98178cbc8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 311602733304544293, guid: 87580e5d7e3f40c48a951ba98178cbc8,
         type: 3}
       propertyPath: m_IsActive
@@ -2621,6 +2648,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CullingMask.m_Bits
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8864015056672882160, guid: 87580e5d7e3f40c48a951ba98178cbc8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4769628329976967874, guid: 87580e5d7e3f40c48a951ba98178cbc8, type: 3}

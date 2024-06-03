@@ -16,10 +16,16 @@ public class HealthDisplay :    NetworkBehaviour
         /// evento criado automaticamente para networkvariables (OnValueChanged)
         if (!IsClient) return; ///só otimização, não é obrigatório
 
+        healthBarImage.fillAmount = 1;
+
         health.currentHealth.OnValueChanged += HandleHealthChanged;
         HandleHealthChanged(0, health.currentHealth.Value); ///oldHeatlh n i,porta, n usamos, mas para o evento é obrigatorio
     }
 
+    private void Update()
+    {
+        Debug.Log(healthBarImage.fillAmount);
+    }
     public override void OnNetworkDespawn()
     {
         if (!IsClient) return; ///só otimização, não é obrigatório

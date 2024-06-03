@@ -52,11 +52,11 @@ public class AvatarRigSelector : NetworkBehaviour
 
             if (i == avatarIndex)
             {
-                avatarInputConverter.MainAvatarTransform = transform.Find(avatarPrefabs[i].name);
-                avatarInputConverter.AvatarBody = transform.Find(avatarPrefabs[i].name).GetChild(0);
-                avatarInputConverter.AvatarHand_Left = transform.Find(avatarPrefabs[i].name).GetChild(1);
-                avatarInputConverter.AvatarHand_Right = transform.Find(avatarPrefabs[i].name).GetChild(2);
-                avatarInputConverter.AvatarHead = transform.Find(avatarPrefabs[i].name).GetChild(3);
+              //  avatarInputConverter.MainAvatarTransform = transform.Find(avatarPrefabs[i].name);
+              //  avatarInputConverter.AvatarBody = transform.Find(avatarPrefabs[i].name).GetChild(0);
+              //  avatarInputConverter.AvatarHand_Left = transform.Find(avatarPrefabs[i].name).GetChild(1);
+              //  avatarInputConverter.AvatarHand_Right = transform.Find(avatarPrefabs[i].name).GetChild(2);
+              //  avatarInputConverter.AvatarHead = transform.Find(avatarPrefabs[i].name).GetChild(3);
             }
         }
     }
