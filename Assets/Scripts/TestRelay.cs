@@ -127,8 +127,8 @@ public class TestRelay : NetworkBehaviour {
 
             isHost = true;
 
-        LoadScene(sceneName);
-        //NetworkManager.Singleton.StartHost(); 
+        //LoadScene(sceneName);
+        NetworkManager.Singleton.StartHost(); 
         }
         catch (RelayServiceException e)
         {
@@ -163,8 +163,8 @@ public class TestRelay : NetworkBehaviour {
 
             isHost = false;
 
-            LoadScene(sceneName);
-            //NetworkManager.Singleton.StartClient();
+            //LoadScene(sceneName);
+            NetworkManager.Singleton.StartClient();
         }
         catch (RelayServiceException e)
         {

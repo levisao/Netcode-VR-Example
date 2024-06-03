@@ -20,10 +20,10 @@ public class PlayerNetwork : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
-        if (IsOwner) return;
+        //if (IsOwner) return;
 
-        locomotionSystem.enabled = false;
-        continuousMoveProvider.enabled = false;
+        //locomotionSystem.enabled = false;
+        //continuousMoveProvider.enabled = false;
     }
 
     private void Update()
