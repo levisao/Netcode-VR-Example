@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
-public class AvatarInputConverter : NetworkBehaviour
+public class AvatarInputConverter : MonoBehaviour
 {
 
     //Avatar Transforms
@@ -28,11 +28,6 @@ public class AvatarInputConverter : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (NetworkManager.IsListening) //are we connected to the server as a client
-        {
-            //Debug.Log("SE TIVER APARECENDO ISLISTENING É TRUE");
-            if (!IsOwner) return;
-        }
         
         //Head and Body synch
         MainAvatarTransform.position = Vector3.Lerp(MainAvatarTransform.position, XRHead.position + headPositionOffset, 0.5f);

@@ -59,7 +59,7 @@ public class TestRelay : NetworkBehaviour {
             joinButton.onClick.AddListener(JoinRelay);
         }
 
-        //SceneManager.sceneLoaded += OnSceneLoaded;  //subscribing to event that tells when a scene finished loading
+        SceneManager.sceneLoaded += OnSceneLoaded;  //subscribing to event that tells when a scene finished loading
 
     }
 
@@ -83,12 +83,13 @@ public class TestRelay : NetworkBehaviour {
     public override void OnNetworkSpawn()
     {
 
-        var status = NetworkManager.SceneManager.LoadScene(sceneName, LoadSceneMode.Single); // irá loadar a cena assim que a network spawn
+      /*  var status = NetworkManager.SceneManager.LoadScene(sceneName, LoadSceneMode.Single); // irá loadar a cena assim que a network spawn
         if (status != SceneEventProgressStatus.Started)
         {
             Debug.LogWarning($"Failed to load {sceneName} " +
                   $"with a {nameof(SceneEventProgressStatus)}: {status}");
         }
+      */
     }
 
 
@@ -140,7 +141,7 @@ public class TestRelay : NetworkBehaviour {
     {
         //Debug.Log("Scene name: " + scene);
         //NetworkManager.Singleton.SceneManager.LoadScene(scene, LoadSceneMode.Single);
-        //SceneManager.LoadScene(scene);
+        SceneManager.LoadScene(scene);
     }
 
     public async void JoinRelay() // Joinando o server com o joinCode gerado

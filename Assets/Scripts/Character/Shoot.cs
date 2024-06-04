@@ -79,6 +79,7 @@ public class Shoot : NetworkBehaviour
     [ServerRpc]
     private void SpawnBulletServerRpc(Vector3 spawnPos, Vector3 direction) // sempre passar as varaiveis que vai usar, parece que só funciona assim?
     {
+        Debug.Log("CRIANDO SERVER BULLET?");
         GameObject spawnedBulletTransform = Instantiate(serverBulletPrefab, spawnPos, Quaternion.identity); //fake projectile?
 
         spawnedBulletTransform.transform.forward = direction;
