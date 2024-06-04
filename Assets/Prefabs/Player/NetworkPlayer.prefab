@@ -76,6 +76,8 @@ GameObject:
   - component: {fileID: 4990148236443661159}
   - component: {fileID: 715395898550702551}
   - component: {fileID: 4944754850927993142}
+  - component: {fileID: 436661435785416691}
+  - component: {fileID: 8043401066106029721}
   m_Layer: 0
   m_Name: NetworkPlayer
   m_TagString: Untagged
@@ -192,6 +194,55 @@ MonoBehaviour:
   NetXRHead: {fileID: 8182638355254362902}
   NetXRLeftHand: {fileID: 3498765492589563716}
   NetXRRightHand: {fileID: 8423245039821326667}
+--- !u!114 &436661435785416691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3799592322375168486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c67d39b66f852ef43a229a8e9e15a164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerRightHand: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
+  clientBulletPrefab: {fileID: 2086477688159467390, guid: c9473ecc23f26d44db38b0e55b65e947,
+    type: 3}
+  serverBulletPrefab: {fileID: 5218330170015258236, guid: 357e098b147853146946c6c40762f19e,
+    type: 3}
+  rightHandController: {fileID: 8423245039821326667}
+  playerCollider: {fileID: 8043401066106029721}
+  bulletShootDelay: 0.3
+  bulletSpeed: 20
+  bulletDestroyDelay: 2.5
+--- !u!143 &8043401066106029721
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3799592322375168486}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 1.32
+  m_Radius: 0.21
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0.63, z: 0}
 --- !u!1 &4272074890888224601
 GameObject:
   m_ObjectHideFlags: 0
