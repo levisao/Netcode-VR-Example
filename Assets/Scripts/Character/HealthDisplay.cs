@@ -36,6 +36,13 @@ public class HealthDisplay :    NetworkBehaviour
     private void HandleHealthChanged(int oldHealth, int newHealth)
     {                               ///fillAmount vai de 0 a 1
         healthBarImage.fillAmount = (float)newHealth / health.MaxHealth; //resultará na porcentagem
+
+        if (healthBarImage.fillAmount <= 0.5f)
+        {
+            healthBarImage.color = Color.red;
+        }
+        //Debug.Log("EVENT BEING CALLED. FILL AMOUNT: " + healthBarImage.fillAmount);
     }
+
 
 }
