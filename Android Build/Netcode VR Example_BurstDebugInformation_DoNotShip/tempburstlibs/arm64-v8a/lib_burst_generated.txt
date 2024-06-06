@@ -10,6 +10,7 @@ Library: C:\repos-Projetos Unity\Netcode-VR-Example\Temp\BurstOutput\tempburstli
 --target-framework=NetFramework
 --float-mode=Fast
 --assembly-defines=Assembly-CSharp;
+--assembly-defines=Meta.XR.Audio;
 --assembly-defines=Meta.XR.BuildingBlocks;
 --assembly-defines=meta.xr.mrutilitykit;
 --assembly-defines=Meta.XR.MultiplayerBlocks.Shared;
@@ -92,6 +93,7 @@ Library: C:\repos-Projetos Unity\Netcode-VR-Example\Temp\BurstOutput\tempburstli
 --float-precision=Standard
 --target-framework=NetFramework
 --assembly-defines=Assembly-CSharp;
+--assembly-defines=Meta.XR.Audio;
 --assembly-defines=Meta.XR.BuildingBlocks;
 --assembly-defines=meta.xr.mrutilitykit;
 --assembly-defines=Meta.XR.MultiplayerBlocks.Shared;
@@ -272,6 +274,7 @@ Library: C:\repos-Projetos Unity\Netcode-VR-Example\Temp\BurstOutput\tempburstli
 --float-precision=Standard
 --target-framework=NetFramework
 --assembly-defines=Assembly-CSharp;
+--assembly-defines=Meta.XR.Audio;
 --assembly-defines=Meta.XR.BuildingBlocks;
 --assembly-defines=meta.xr.mrutilitykit;
 --assembly-defines=Meta.XR.MultiplayerBlocks.Shared;
