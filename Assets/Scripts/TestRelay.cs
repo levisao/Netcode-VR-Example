@@ -59,7 +59,7 @@ public class TestRelay : NetworkBehaviour {
             joinButton.onClick.AddListener(JoinRelay);
         }
 
-        SceneManager.sceneLoaded += OnSceneLoaded;  //subscribing to event that tells when a scene finished loading
+        //SceneManager.sceneLoaded += OnSceneLoaded;  //subscribing to event that tells when a scene finished loading
 
     }
 
